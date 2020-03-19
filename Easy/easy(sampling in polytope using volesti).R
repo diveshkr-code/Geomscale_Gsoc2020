@@ -1,6 +1,7 @@
+#This program saves the sampled plots in form of pdf "Sample.pdf" in your workin directory.
 library(volesti)
 library(ggplot2)
-
+pdf("sampling.pdf")                            
 for(walk_type in c("BW", "CDHR", "RDHR") ){
   for(step_len in c(1,50,100,500)){
     P = GenCube(3, 'H')
@@ -11,3 +12,5 @@ for(walk_type in c("BW", "CDHR", "RDHR") ){
     plot(g)
   }
 }
+while (!is.null(dev.list()))  dev.off()
+
